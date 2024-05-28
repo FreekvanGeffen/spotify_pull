@@ -4,10 +4,7 @@ from client import (
     get_playlist_info,
     get_track_info,
 )
-from dotenv import load_dotenv
 from utils import get_playlist_history, write_data_files
-
-load_dotenv()
 
 playlist_id = "2MzJ9ZBgzHHhm6PNE1G9rg"
 

@@ -8,7 +8,6 @@ WORKDIR /usr/src
 # no version-pinning here
 RUN pip install --upgrade pip \
  && pip install --no-cache-dir \
-      python-dotenv \
       spotipy \
       mypy \
       ruff
