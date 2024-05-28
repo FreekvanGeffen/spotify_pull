@@ -1,0 +1,44 @@
+[tool.ruff]
+exclude = [".github"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "C",     # mccabe
+  "CPY",   # flake8-copyright
+  "DJ",    # flake8-django
+  "FA",    # flake8-future-annotations
+  "FBT",   # flake8-boolean-trap
+  "FIX",   # flake8-fixme
+  "FURB",  # refurb
+  "PD",    # pandas-vet
+  "TD"     # flake8-todos
+]
+extend-ignore = [
+  "ANN002",   # missing type annotation for "*args"
+  "ANN003",   # missing type annotation for "**kwargs"
+  "ANN101",   # missing type annotation for "self" in method
+  "ANN102",   # missing type annotation for "cls" in classmethod
+  "ANN401",   # disallowed dynamically typed expressions
+  "COM812",   # missing trailing comma
+  "D203",     # one blank line required before class docstring
+  "D213",     # multi-line docstring summary should start at the second line
+  "E741",     # ambiguous variable name
+  "G004",     # f-string in logging
+  "ISC001",   # single line implicit string concatenation
+  "PLR0912",  # too many branches
+  "RET504",   # unnecessary assignment before return statement
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["D104"]  # missing docstring
+"purview_push/client.py" = ["PERF203"]  # try-except within loop
+"purview_push/operations.py" = ["PLW2901"]  # overwritten variable in for loop
+"purview_push/models/*.py" = [
+  "D101",     # missing docstring in public class
+  "N815",     # variable name should not be mixedCase
+]
+"tests/**.py" = [
+  "PLR2004",  # magic value used in comparison
+  "S101",     # use of assert
+]
