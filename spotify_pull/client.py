@@ -58,6 +58,7 @@ def get_playlist_info(playlist: dict) -> dict:
         "numbers": playlist["tracks"]["total"],
         "url": playlist["external_urls"]["spotify"],
         "date": str(datetime.datetime.now(tz=datetime.timezone.utc).date()),
+        "image": playlist["images"][0]["url"],
     }
     return playlist_info
 
@@ -105,6 +106,7 @@ def get_track_info(sp: spotipy, playlist: dict) -> list[dict]:
             "added_by": track["added_by"]["id"],
             "added_at": str(track["added_at"])[:10],
             "url": track["track"]["external_urls"]["spotify"],
+            "image": track["track"]["album"]["images"][0]["url"],
         }
         track_info.append(track_details)
 
