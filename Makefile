@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-NAME=code_folder
+NAME=spotify_pull
 
 build:
 	docker build --tag $(NAME) .

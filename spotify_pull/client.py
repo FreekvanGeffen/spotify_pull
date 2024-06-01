@@ -4,7 +4,7 @@ import datetime
 import os
 
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
 
 
 def create_spotipy_client() -> spotipy:
@@ -16,11 +16,9 @@ def create_spotipy_client() -> spotipy:
 
     """
     return spotipy.Spotify(
-        auth_manager=SpotifyOAuth(
+        client_credentials_manager=SpotifyClientCredentials(
             client_id=os.getenv("SPOTIPY_CLIENT_ID"),
             client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
-            redirect_uri=os.getenv("SPOTIPY_REDIRECT_URI"),
-            scope="user-library-read",
         )
     )
 

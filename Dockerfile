@@ -12,4 +12,4 @@ RUN pip install --upgrade pip \
       mypy \
       ruff
 
-COPY code_folder code_folder
+COPY spotify_pull spotify_pull
