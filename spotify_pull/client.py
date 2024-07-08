@@ -87,13 +87,12 @@ def get_track_info(sp: spotipy, playlist: dict) -> list[dict]:
 
     """
     tracks = list(playlist["tracks"]["items"])
+    playlist = playlist["tracks"]
     track_info = []
 
-    # Fetch all tracks in the playlist
-    while "tracks" in playlist and playlist["tracks"]["next"]:
-        playlist = sp.next(playlist["tracks"])
-        if "items" in playlist:
-            tracks += list(playlist["items"])
+    while playlist["next"]:
+        playlist = sp.next(playlist)
+        tracks.extend(playlist["items"])
 
     # Select interesting track details
     for track in tracks:
